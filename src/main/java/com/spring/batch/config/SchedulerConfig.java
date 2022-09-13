@@ -17,14 +17,15 @@ import org.springframework.scheduling.annotation.Scheduled;
 public class SchedulerConfig {
 
 	@Autowired
-	JobLauncher jobLauncher;
+	private JobLauncher jobLauncher;
 
 	@Autowired
-	Job job;
+	private Job job;
 
-	SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
+	private SimpleDateFormat format = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.S");
 
-	@Scheduled(fixedDelay = 5000, initialDelay = 5000)
+	//@Scheduled(fixedDelay=Long.MAX_VALUE, initialDelay = 5000)
+    @Scheduled(fixedDelay = 5000, initialDelay = 5000)
 	public void scheduleByFixedRate() throws Exception {
 		System.out.println("Batch job starting");
 		JobParameters jobParameters = new JobParametersBuilder()

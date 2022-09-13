@@ -13,7 +13,7 @@ import com.spring.batch.secondary.repository.ManagerRepository;
 public class MyCustomWriter implements ItemWriter<Manager> {
 
 	@Autowired
-	ManagerRepository managerRepository;
+	private ManagerRepository managerRepository;
 
 	@Override
 	public void write(List<? extends Manager> list) throws Exception {
